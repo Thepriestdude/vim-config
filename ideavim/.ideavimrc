@@ -1,0 +1,49 @@
+let mapleader = " "                                     " map <leader> to space
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --- Set editor configuration ---
+set number                                              " Show line numbers
+set relativenumber                                      " Show line numbers and relative line numbers
+set scrolloff=5                                         " Show 5 lines above and below the cursor when scrolling
+set incsearch                                           " Do incremental searching.
+
+set ignorecase                                          " Ignore case when searching
+set NERDTree                                            " Enable NERDTree shortcuts in solution explorer
+
+set showmode                                            " Show current mode
+set showmodewidget                                      " Show current mode in the status bar
+set colorfulmodewidget                                  " Use different colors for different modes
+"#######################################################################################################################
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --- Annoyance fixes ---
+vnoremap < <gv                                          " Don't lose selection when indenting left
+vnoremap > >gv                                          " Don't lose selection when indenting right
+vnoremap = =gv                                          " Don't lose selection when fixing indention 
+
+map Q gq                                                " Don't use Ex mode, use Q for formatting.
+"#######################################################################################################################
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --- Custom key mappings ---
+nmap <C-.> viwy :%s/\\<<C-r>"\\>//g<Left><Left>         " Find and replace current word under cursor
+"#######################################################################################################################
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --- Plugins ---
+Plug 'machakann/vim-highlightedyank'                    " Highlight copied text
+Plug 'tpope/vim-commentary'                             " Commentary plugin
+Plug 'michaeljsmith/vim-indent-object'                  " Paragraph movement
+"#######################################################################################################################
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
