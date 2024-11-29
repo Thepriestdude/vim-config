@@ -1,5 +1,8 @@
 let mapleader = " "                                     " map <leader> to space
 
+"" This command enables the the plugin actions to be recorded and used in macros
+" set tai
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --- Set editor configuration ---
 set number                                              " Show line numbers
@@ -17,16 +20,16 @@ set colorfulmodewidget                                  " Use different colors f
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --- Annoyance fixes ---
-vnoremap < <gv                                          " Don't lose selection when indenting left
-vnoremap > >gv                                          " Don't lose selection when indenting right
-vnoremap = =gv                                          " Don't lose selection when fixing indention 
+vnoremap < <gv|                                         " Don't lose selection when indenting left
+vnoremap > >gv|                                         " Don't lose selection when indenting right
+vnoremap = =gv|                                         " Don't lose selection when fixing indention 
 
-map Q gq                                                " Don't use Ex mode, use Q for formatting.
+map Q gq|                                               " Don't use Ex mode, use Q for formatting.
 "#######################################################################################################################
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --- Custom key mappings ---
-nmap <C-.> viwy :%s/\\<<C-r>"\\>//g<Left><Left>         " Find and replace current word under cursor
+nmap <C-.> viwy :%s/\\<<C-r>"\\>//g<left><left>|        " Find and replace the word under the cursor
 
 " Move between windows
 nnoremap <C-k> <C-w>k|                                  " Move to the window above
@@ -34,13 +37,13 @@ nnoremap <C-j> <C-w>j|                                  " Move to the window bel
 nnoremap <C-h> <C-w>h|                                  " Move to the window to the left
 nnoremap <C-l> <C-w>l|                                  " Move to the window to the right
 
-" The following commands requires the marketplace plugin 'TabShifter' to be installed
+" Tab management
+" NOTE: The following commands requires the marketplace plugin 'TabShifter' to be installed
 nmap <leader>l <Action>(TabShiftActions.ShiftRight)|    " Move tab to the right split, or create new if none existing
 nmap <leader>h <Action>(TabShiftActions.ShiftLeft)|     " Move tab to the left split
 nmap <leader>j <Action>(TabShiftActions.ShiftDown)|     " Move tab to the bottom split, or create new if none existing
 nmap <leader>k <Action>(TabShiftActions.ShiftUp)|       " Move tab to the top split
 "#######################################################################################################################
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --- Plugins ---
@@ -58,4 +61,3 @@ Plug 'michaeljsmith/vim-indent-object'                  " Paragraph movement
 
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
-
